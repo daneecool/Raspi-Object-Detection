@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  raspi-detection:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: raspi_object_detection
+    volumes:
+      - ./data:/workspace/data
+      - ./scripts:/workspace/scripts
+      - ./tests:/workspace/tests
+      - /tmp:/tmp  # For Pi temp files
+    devices:
+      - /dev/video0:/dev/video0  # Camera access
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - YOLO_VERBOSE=False
+      - OPENCV_LOG_LEVEL=ERROR
+    networks:
+      - raspi_network
+    restart: unless-stopped
+    
+    # Pi 3B specific resource limits (1GB total RAM)
+    mem_limit: 750m          # Leave 250MB for system
+    memswap_limit: 750m      # No swap for performance
+    cpus: "4.0"              # Use all 4 cores
+    
+    # Pi-specific settings
+    privileged: false
+    security_opt:
+      - no-new-privileges:true
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import cv2, ultralytics; print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+networks:
+  raspi_network:
+    driver: bridge
