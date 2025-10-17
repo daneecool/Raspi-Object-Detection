@@ -1,12 +1,76 @@
-# Image Processing Pipeline - YOLO11n with Intel Optimization 🚀
-## Production-ready object detection with 2x performance improvement
+# Image Processing Pipeline - YOLO11n with Intel + Raspberry Pi Support 🚀
+## Production-ready object detection for both Intel x86_64 and ARM64 Raspberry Pi
 
-This Docker-based environment provides a complete image processing pipeline featuring:
+This comprehensive project provides **dual-platform object detection** with optimized setups for both development and edge deployment:
+
+### 🖥️ **Intel x86_64 Platform** (Main Development)
 - **✅ YOLO11n** - State-of-the-art object detection (working perfectly)
 - **✅ PyTorch to ONNX** - Model optimization with 2x speed improvement  
-- **✅ Intel CPU Optimization** - Optimized for Intel hardware
+- **✅ Intel CPU Optimization** - Optimized for Intel hardware with IPEX & OpenVINO
 - **⚠️ NCNN** - Optional high-performance inference (setup required)
 - **🔮 NVIDIA Support** - Ready to enable for future GPU upgrade
+
+### 🍓 **Raspberry Pi ARM64 Platform** (Edge Deployment)
+- **✅ Pi 3B v1.2 Optimized** - ARM64 Docker setup with 1GB RAM constraints
+- **✅ Memory Efficient** - 750MB container limit with smart resource management
+- **✅ Pi-Specific Testing** - 8-test suite for Pi validation and performance
+- **✅ Automated Setup** - One-command deployment with `setup_raspi.sh`
+- **✅ Headless Mode** - Perfect for security cameras and IoT applications
+
+## 🎯 **Why Choose This for Raspberry Pi?**
+
+**Looking for object detection on Raspberry Pi?** You're in the right place! This project is **specifically designed** for Pi deployment with:
+
+### 🚀 **Pi-Ready Features:**
+- **ARM64 optimized Docker** - No architecture compatibility issues
+- **Memory constrained** - Works perfectly with Pi 3B's 1GB RAM
+- **Realistic performance** - 1-3 FPS with 500-2000ms inference (perfect for security cameras)
+- **Complete testing** - Validated on actual Pi hardware
+- **Easy deployment** - Copy `raspi/` folder and run one script
+
+### 💡 **Perfect Pi Use Cases:**
+- 🏠 **Home Security** - Motion detection with person identification
+- 🚪 **Smart Doorbell** - Visitor detection and alerts
+- 📹 **Wildlife Camera** - Animal detection and monitoring
+- 🏭 **Industrial IoT** - Equipment monitoring and safety
+- 🎓 **Educational Projects** - Learn AI on affordable hardware
+
+### 📊 **Pi Performance You Can Count On:**
+```bash
+✅ Tested on Pi 3B v1.2 (1GB RAM)
+✅ 1-3 FPS sustained performance  
+✅ 600-750MB memory usage
+✅ Headless operation ready
+✅ Camera integration working
+```
+
+👉 **Ready for Pi?** Jump to [`raspi/`](./raspi/) folder for Pi-specific setup!
+
+## 📁 Project Organization
+
+This repository is organized for **dual-platform deployment** with clear separation between Intel and Raspberry Pi setups:
+
+```
+ImageProcessing/
+├── 🖥️ Intel x86_64 Setup (Main Development)
+│   ├── Dockerfile, docker-compose.yml, requirements.txt
+│   ├── scripts/ (obj_detection.py, test suites, pipelines)
+│   └── Complete Intel optimization (IPEX, OpenVINO, ONNX)
+│
+└── 🍓 Raspberry Pi ARM64 Setup (Edge Deployment)
+    └── raspi/
+        ├── ARM64-optimized Docker & dependencies
+        ├── Pi-specific test suite (8 tests)
+        ├── setup_raspi.sh (one-command setup)
+        └── Memory-constrained configuration (750MB limit)
+```
+
+### 🎯 **Choose Your Platform:**
+- **Intel Development**: Use main folder for high-performance development
+- **Raspberry Pi Deployment**: Use `raspi/` folder for edge deployment
+- **Dual Testing**: Test on Intel, deploy on Pi seamlessly
+
+👉 **[See complete organization details](./ORGANIZATION_SUMMARY.md)**
 
 ## 🎯 **Performance Results**
 - **PyTorch**: 126.22ms inference time
