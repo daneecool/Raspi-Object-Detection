@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  imageprocessing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: imageprocessing:latest
+    container_name: imageprocessing-container
+    
+    # Intel GPU support (comment out if /dev/dri doesn't exist)
+    # devices:
+    #   - /dev/dri:/dev/dri  # Intel GPU device access
+    
+    # NVIDIA GPU support (uncomment when you get NVIDIA GPU)
+    # runtime: nvidia
+    # environment:
+    #   - NVIDIA_VISIBLE_DEVICES=all
+    #   - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    
+    volumes:
+      # Mount current directory to workspace
+      - .:/workspace
+      # Mount for models (persistent storage)
+      - ./models:/workspace/models
+      # Mount for input/output data
+      - ./data:/workspace/data
+      # Cache for pip packages
+      - pip-cache:/root/.cache/pip
+    
+    ports:
+      # Jupyter notebook port (optional)
+      - "8888:8888"
+      # Flask/FastAPI development port
+      - "5000:5000"
+    
+    # Keep container running
+    stdin_open: true
+    tty: true
+    
+    # Working directory
+    working_dir: /workspace
+    
+    # Environment variables for Intel optimizations (currently active)
+    environment:
+      - OMP_NUM_THREADS=4
+      - MKL_NUM_THREADS=4
+      - INTEL_EXTENSION_FOR_PYTORCH=1
+      # Uncomment below when using NVIDIA GPU
+      # - CUDA_VISIBLE_DEVICES=0
+    
+    # Default command
+    command: /bin/bash
+
+volumes:
+  pip-cache:
