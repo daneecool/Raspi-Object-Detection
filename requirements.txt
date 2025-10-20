@@ -1,0 +1,70 @@
+# Core ML and Image Processing
+torch>=2.0.0,<2.5.0
+torchvision>=0.15.0,<0.20.0
+torchaudio>=2.0.0,<2.5.0
+
+# Intel optimizations (currently active)
+intel-extension-for-pytorch>=2.0.0
+openvino>=2023.1.0
+openvino-dev>=2023.1.0
+
+# YOLO11n (via ultralytics)
+ultralytics>=8.0.0
+
+# ONNX support (compatible versions)
+onnx>=1.14.0,<1.17.0
+onnxruntime>=1.15.0,<1.19.0
+onnxscript>=0.1.0,<0.2.0
+# OpenVINO runtime for Intel optimizations (currently active)
+onnxruntime-openvino>=1.15.0,<1.19.0
+# Uncomment below when using NVIDIA GPU
+# onnxruntime-gpu>=1.15.0
+
+# Computer Vision
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0
+Pillow>=9.5.0
+
+# Image processing and visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# System monitoring and analysis
+psutil>=5.9.0
+numpy>=1.24.0
+plotly>=5.15.0
+
+# Scientific computing
+numpy>=1.24.0
+scipy>=1.10.0
+scikit-image>=0.20.0
+
+# Data handling
+pandas>=2.0.0
+
+# Jupyter support (optional)
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipywidgets>=8.0.0
+
+# Model conversion utilities
+onnx-simplifier>=0.4.0
+onnxoptimizer>=0.3.0
+
+# Performance monitoring
+psutil>=5.9.0
+tqdm>=4.65.0
+
+# Development tools
+pytest>=7.4.0
+black>=23.0.0
+pep8>=1.7.1
+
+# API development (optional)
+fastapi>=0.100.0
+uvicorn>=0.23.0
+
+# Additional utilities
+requests>=2.31.0
+pyyaml>=6.0
+colorama>=0.4.6

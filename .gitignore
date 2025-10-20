@@ -1,0 +1,53 @@
+# Python virtual environments
+.venv/
+.wsl_venv/
+.venv/*
+.venv/Lib/
+.venv/Scripts/
+.venv/Include/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dockerignore exclusions
+**/data/
+**/models/
+
+# Ignore Python environment folders created on Windows (Scripts/) or Linux (bin/)
+venv/
+env/
+ENV/
+env.bak/
+
+# logs
+*.log
