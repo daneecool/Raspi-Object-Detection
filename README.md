@@ -437,7 +437,7 @@ python -c "import ncnn; print('NCNN available')" 2>/dev/null || echo "NCNN not a
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT Licence
 
 ---
 
